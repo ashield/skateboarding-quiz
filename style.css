@@ -44,15 +44,24 @@ h1 {
 	margin: 0 170px 0 0;
 }
 
+#score p {
+	display: inline-block;
+}
+
 #question {
 	display: inline-block;
 }
 
-#restart {
+#question p {
+	display: inline-block;
+}
+
+.restart {
 	display: inline-block;
 	float: right;
 	margin: 0 125px 0 0;
-	color: rgb(136, 92, 92)
+	color: rgb(136, 92, 92);
+	cursor: pointer;
 }
 
 h4 {
@@ -70,6 +79,43 @@ ol li {
 	padding: 2px 111px 10px 0px;
 	font-size: 22px;
 	font-weight: 400;
+}
 
+.radio {
+	opacity: 0.7;
+}
+
+.outcome {
+	display: inline-block;
+	padding: 25px 0 10px 42px;
+	width: 100%;
+	text-align: left;
+	font-size: 20px;
+}
+
+#correct {
+	display: inline-block;
+	color: rgb(94, 136, 92)
+}
+
+#incorrect {
+	display: inline-block;
+	color: rgb(136, 92, 92);
+}
+
+#next {
+	display: inline-block;
+	color: rgb(153, 153, 153);
+	float: right;
+	cursor: pointer;
+	margin: 0 191px 0 0;
+}
+
+.correct-answer {
+	color: rgb(153, 153, 153);
+}
+
+.reset {
+	margin-right: 267px;
 }
 
