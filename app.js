@@ -72,7 +72,7 @@ if (selectedAnswer == questions [currentQuestion].correct) {
 	
 
 else {
-	$('#incorrect').append("<p>Incorrect. <br> <span class='correct-answer'>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</span></p>");
+	$('#incorrect').append("<p>Incorrect.<span class='correct-answer'>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</span></p>");
 	$('#next').append("<p>Next</p>");
 	next();
 	currentQuestion++
@@ -119,7 +119,7 @@ function questionNuber() {
 
 function complete() {
 	$('.status').hide();
-	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5<br>To try again click" + "<div class='restart'>HERE</div></h4>")
+	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5<br>To try again click" + "<div class='restart'></div></h4>")
 }
 
 function restart() {
