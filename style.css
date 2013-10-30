@@ -58,16 +58,16 @@ h1 {
 	display: inline-block;
 	float: right;
 	margin: 0 94px 0 0;
-	width: 55px;
+	width: 57px;
 	position: relative;
-	border: 1px solid #A5A5A5;
 	border-radius: 5px;
 	color: #444444;
 	background-color: rgba(175, 175, 175, 0.76);
 	padding: 0px 5px;
 	font-size: 17px;
-	line-height: 27px;
-	cursor: pointer
+	line-height: 29px;
+	cursor: pointer;
+	text-align: center;
 
 
 }
@@ -79,19 +79,23 @@ h4 {
 
 }
 
-ol {
-	padding: 10px 0 0 77px;
+ul {
+	padding: 10px 0 0 42px;
 }
 
-ol li {
+ul li {
 	padding: 2px 111px 10px 0px;
 	font-size: 22px;
 	font-weight: 400;
 }
 
-.radio {
+.option {
 	opacity: 0.7;
+	margin-right: 10px;
+	position: relative;
+	bottom: 2px;
 }
+
 
 .outcome {
 	display: inline-block;
@@ -116,15 +120,14 @@ ol li {
 	display: inline-block;
 	float: right;
 	margin: 0 130px 0 0;
-	width: 55px;
+	width: 57px;
 	position: relative;
-	border: 1px solid #A5A5A5;
 	border-radius: 5px;
 	color: #444444;
 	background-color: rgba(175, 175, 175, 0.76);
 	padding: 0px 5px;
 	font-size: 17px;
-	line-height: 27px;
+	line-height: 29px;
 	cursor: pointer;
 	text-align: center;
 }

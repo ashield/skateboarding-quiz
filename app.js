@@ -1,6 +1,7 @@
 $(document).ready(function() {
-
-generateQ1()
+$('h1').hide().delay(500).fadeIn('slow');
+$('.status').hide().delay(700).fadeIn('slow');
+generateQuestions()
 submit();
 restart();
 
@@ -17,7 +18,7 @@ function Question(currentQuestion,answers,correct) {
 }
 
 questions [0] = new Question ("Who is famous for doing the first 900?",["Bob Burnquist", "Tony Hawk", "Andy Mac Donald", "Chad Muska", "Rodney Mullen"], 1);
-questions [1] = new Question ("How high is the world record high ollie?",["place", "place", "45 in (114.3 cm)", "place", "place"], 2);
+questions [1] = new Question ("How high is the world record high ollie?",["40 in (101.6 cm)", "42 in (106.68 cm)", "45 in (114.3 cm)", "46 in (116.84 cm)", "48 in (121.92 cm)"], 2);
 questions [2] = new Question ("Who has earned more prize money than any skateboarder in history?",["Tony Hawk", "Ryan Sheckler" , "Paul Rodriguez", "Steve Caballero", "Nyjah Huston"], 4);
 questions [3] = new Question ("Which one of these is not a skateboarding trick?",["Kickflip", "Hardflip", "Heelflip", "Toeflip", "Fingerflip"], 3);
 questions [4] = new Question ("What material revolutioised skateboard wheels in the 1970?",["Polyurethane", "Rubber", "Clay", "Wood", "Carbon Fibre"], 0);
@@ -25,15 +26,15 @@ questions [4] = new Question ("What material revolutioised skateboard wheels in 
 
 
 // Write first question to page
-function generateQ1() {
+function generateQuestions() {
 var q1 = questions [currentQuestion].currentQuestion;
-$('#heading').append('<h4>' + q1 + '</h4>').hide().fadeIn('slow');
+$('#heading').append('<h4>' + q1 + '</h4>').hide().delay(1200).fadeIn('slow');
 var write = "";
 var a1 = questions [currentQuestion].answers;
 for (var i = 0; i < a1.length; i++) {
     write += "<li><input type='radio' name='radio' class='option' value=" +(i)+ ">" + a1[i]+ "</li>";
 };
-$("#answers").append(write).hide().slideDown('slow');;
+$("#answers").append(write).hide().delay(1700).slideDown('slow');
 // document.getElementById('answers').innerHTML = write;
 };
 
@@ -62,8 +63,8 @@ if (selected.length >= 0) {
 };
 
 if (selectedAnswer == questions [currentQuestion].correct) {
-	$('#correct').append("<p>Correct</p>");
-	$('#next').append("<p>Next</p>");
+	$('#correct').append("<p>Correct</p>").hide().delay(400).fadeIn('400');
+	$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
 	next();
 	playerScore()
 	currentQuestion++
@@ -72,8 +73,8 @@ if (selectedAnswer == questions [currentQuestion].correct) {
 	
 
 else {
-	$('#incorrect').append("<p>Incorrect.<span class='correct-answer'>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</span></p>");
-	$('#next').append("<p>Next</p>");
+	$('#incorrect').append("<p>Incorrect.<span class='correct-answer'>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</span></p>").hide().delay(400).fadeIn('400');
+	$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
 	next();
 	currentQuestion++
 }
@@ -82,7 +83,7 @@ else {
 
 
 function next() {
-	$("#next").click(function() {
+ 	$("#next").click(function() {
 		$('h4').remove();
 		$('li').remove();
 		$(".outcome p").remove();
@@ -93,7 +94,7 @@ if (currentQuestion >= 5) {
 	return;
 }
 else {
-		generateQ1();
+		generateQuestions();
 		questionNuber();
 		submit();
 }
@@ -119,7 +120,7 @@ function questionNuber() {
 
 function complete() {
 	$('.status').hide();
-	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5<br>To try again click" + "<div class='restart'></div></h4>")
+	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5" + "<div class='restart'><p>Restart</p></div></h4>").hide().fadeIn('400');
 }
 
 function restart() {
@@ -129,12 +130,15 @@ function restart() {
 	score = (score-(score+1));
 	questions [0]
 	
+	$('#score').hide().delay(400).fadeIn('slow');
+	$('#question').hide().delay(400).fadeIn('slow');
+
 	$('h4').remove();
 	$('li').remove();
 	$(".outcome p").remove();
 
 	questionNuber();
-	generateQ1()
+	generateQuestions()
 	submit();
 	playerScore();
 	$('.status').show();
