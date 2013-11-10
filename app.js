@@ -5,7 +5,7 @@ generateQuestions()
 submit();
 restart();
 
-	});
+}); // end of document ready
 
 var currentQuestion = 0;
 
@@ -50,7 +50,6 @@ $('.option').click(function() {
 };
 
 
-
 var selectedAnswer = "";
 
 
@@ -73,8 +72,10 @@ if (selectedAnswer == questions [currentQuestion].correct) {
 	
 
 else {
-	$('#incorrect').append("<p>Incorrect.<span class='correct-answer'>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</span></p>").hide().delay(400).fadeIn('400');
+	$('#incorrect').append("<p>Incorrect.</p>").hide().delay(400).fadeIn('400');
 	$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
+	$('#correct-answer').append("<p>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</p>").hide().delay(400).fadeIn('400');
+	
 	next();
 	currentQuestion++
 }
@@ -120,12 +121,13 @@ function questionNuber() {
 
 function complete() {
 	$('.status').hide();
-	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5" + "<div class='restart'><p>Restart</p></div></h4>").hide().fadeIn('400');
+	$('#heading').append("<h4>Quiz complete. You scored" + " " + score + " " + "out of 5 <br>" + "<div class='restart'><p>Restart</p></div></h4>").hide().fadeIn('400');
+	$('.restart').addClass('quiz-end');
 }
 
 function restart() {
 	$('.restart').click(function() {
-
+	$('.restart').removeClass('quiz-end')
 	currentQuestion = 0;
 	score = (score-(score+1));
 	questions [0]
