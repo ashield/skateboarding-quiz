@@ -5,11 +5,11 @@ generateQuestions();
 generateAnswers();
 submit();
 restart();
-
 }); // end of document ready
 
 var currentQuestion = 0;
-
+var selectedAnswer = "";
+var score = 0;
 var questions = new Array();
 
 function Question(currentQuestion,answers,correct) {
@@ -17,7 +17,6 @@ function Question(currentQuestion,answers,correct) {
 	this.answers = answers;
 	this.correct = correct;
 }
-
 
 questions [0] = new Question ("Where did skateboarding originate from?",["London", "Hawaii", "Cape Town", "Sydney", "California"], 4);
 questions [1] = new Question ("Who is known for doing to first Ollie?",["Tony Alva", "Christian Hosoi", "Alan Gelfand", "Steve Caballero", "Stacy Peralta"], 2);
@@ -31,21 +30,20 @@ questions [8] = new Question ("A switch Ollie from the front of the board is a .
 questions [9] = new Question ("Which of these is not part of a skateboard?",["Trucks", "Wheels", "Rubbers", "Bearings", "Bushings"], 2);
 
 
-// Write first question to page
+// Write questions to page
 function generateQuestions() {
-var q1 = questions [currentQuestion].currentQuestion;
-$('#heading').append('<h4>' + q1 + '</h4>').hide().delay(1200).fadeIn('slow');
-};
+var q = questions [currentQuestion].currentQuestion;
+$('#heading').append('<h4>' + q + '</h4>').hide().delay(1200).fadeIn('slow');
+}
 
 function generateAnswers(){
 var write = "";
 var a1 = questions [currentQuestion].answers;
 for (var i = 0; i < a1.length; i++) {
     write += "<li><input type='radio' name='radio' class='option' value=" +(i)+ ">" + a1[i]+ "</li>";
-};
+}
 $("#answers").append(write).hide().delay(1800).slideDown('slow');
-};
-
+}
 
 // Radio button being clicked
 function submit(){
@@ -55,41 +53,30 @@ $('.option').click(function() {
    	$('.option').attr('disabled',true); 
    }
 });
-};
-
-
-var selectedAnswer = "";
-
+}
 
 // Evaluate answer 
 function evaluation() {
-
 var selected = $("input[type='radio'][name='radio']:checked");
-if (selected.length >= 0) {
-    selectedAnswer = selected.val();
-};
-
-if (selectedAnswer == questions [currentQuestion].correct) {
-	$('#correct').append("<p>Correct!</p>").hide().delay(400).fadeIn('400');
-	$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
-	nextQuestion();
-	playerScore()
-	currentQuestion++
-
-}
+	if (selected.length >= 0) {
+    	selectedAnswer = selected.val();
+	}
+	if (selectedAnswer == questions [currentQuestion].correct) {
+		$('#correct').append("<p>Correct!</p>").hide().delay(400).fadeIn('400');
+		$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
+		nextQuestion();
+		playerScore();
+		currentQuestion++;
+	}
 	
-
-else {
-	$('#incorrect').append("<p>Incorrect.</p>").hide().delay(400).fadeIn('400');
-	$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
-	$('#correct-answer').append("<p>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</p>").hide().delay(400).fadeIn('400');
-	
-	nextQuestion();
-	currentQuestion++
+	else {
+		$('#incorrect').append("<p>Incorrect.</p>").hide().delay(400).fadeIn('400');
+		$('#next').append("<p>Next</p>").hide().delay(400).fadeIn('400');
+		$('#correct-answer').append("<p>The correct answer was" + " " + questions[currentQuestion].answers[questions [currentQuestion].correct] + "</p>").hide().delay(400).fadeIn('400');
+		nextQuestion();
+		currentQuestion++;
+	}
 }
-
-}
-
 
 function nextQuestion() {
  	$("#next").click(function() {
@@ -101,23 +88,20 @@ if (currentQuestion >= 10) {
 	complete();
 	restart();
 	return;
-}
+	}
 else {
-		questionNumber();
-		generateQuestions();
-		generateAnswers();
-		submit();
+	questionNumber();
+	generateQuestions();
+	generateAnswers();
+	submit();
+	}
+});
+
 }
-
-	});
-
-}
-
-var score = 0;
 
 function playerScore() {
 	$('#score p').remove();
-	score++
+	score++;
 	$('#score').append(" " + '<p>' + score + '</p>');
 
 }
@@ -125,7 +109,6 @@ function playerScore() {
 function questionNumber() {
 	$('#question p').remove();
 	$('#question').append(" " + '<p>' + (currentQuestion +1) + '/10</p>');
-
 }
 
 function complete() {
@@ -136,34 +119,20 @@ function complete() {
 
 function restart() {
 	$('.restart').click(function() {
-	$('.restart').removeClass('quiz-end')
-	currentQuestion = 0;
-	score = (score-(score+1));
-	questions [0]
-	
-	$('#score').hide().delay(400).fadeIn('slow');
-	$('#question').hide().delay(400).fadeIn('slow');
-
-	$('h4').remove();
-	$('li').remove();
-	$(".outcome p").remove();
-
-	questionNumber();
-	generateQuestions()
-	generateAnswers();
-	submit();
-	playerScore();
-	$('.status').show();
+		$('.restart').removeClass('quiz-end');
+		currentQuestion = 0;
+		score = (score-(score+1));
+		questions [0];
+		$('#score').hide().delay(400).fadeIn('slow');
+		$('#question').hide().delay(400).fadeIn('slow');
+		$('h4').remove();
+		$('li').remove();
+		$(".outcome p").remove();
+		questionNumber();
+		generateQuestions();
+		generateAnswers();
+		submit();
+		playerScore();
+		$('.status').show();
 	});
-};
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -4,7 +4,6 @@ body {
     background-color: rgb(49, 49, 49);
 }
 
-
 .bgimg {
 	background: url(road-arrows.jpg) no-repeat;
     background-size: cover;
@@ -13,7 +12,6 @@ body {
     position: fixed;
     min-height: 700px;
 }
-
 
 .container {
 	padding: 15px 0 18px 18px;
@@ -31,14 +29,12 @@ body {
 	display: inline-block;
 }
 
-
 h1 {
 	padding-bottom: 10px;
 	font-size: 50px;
 	font-variant: small-caps;
 	font-weight: 100;
 }
-
 
 .status {
 	display: inline-block;
@@ -81,8 +77,6 @@ h1 {
 	line-height: 29px;
 	cursor: pointer;
 	text-align: center;
-
-
 }
 
 .restart:hover {
@@ -92,7 +86,6 @@ h1 {
 h4 {
 	padding: 12px 0 13px 0;
 	font-size: 21px;
-
 }
 
 ul {
@@ -111,7 +104,6 @@ ul li {
 	bottom: 2px;
 	cursor: pointer;
 }
-
 
 .outcome {
 	display: inline-block;
@@ -178,8 +170,3 @@ ul li {
 	}
 }
 
-@-ms-document url-prefix() { 
-	h1 {
-	font-size: 44px;
-	}
-}
