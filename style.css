@@ -1,6 +1,6 @@
 body {
-    color: rgb(153, 153, 153);
-    font-family: "Helvetica Neue";
+    color: rgb(49, 49, 49);
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -15,11 +15,15 @@ body {
 
 
 .container {
-	padding: 110px 100px 10px 100px;
+	padding: 15px 0 18px 18px;
 	position: relative;
-	width: 700px;
-	height: auto;
-	min-height: 700px;
+	width: 586px;
+	height: 400px;
+	min-height: 100%;
+	background-color: rgba(153, 153, 153, 0.7);
+	top: 110px;
+	left: 100px;
+	border-radius: 5px;
 }
 
 #heading {
@@ -28,25 +32,25 @@ body {
 
 
 h1 {
-	padding-bottom: 24px;
-	font-size: 55px;
+	padding-bottom: 10px;
+	font-size: 50px;
 	font-variant: small-caps;
-	font-weight: 600;
+	font-weight: 100;
 }
+
 
 .status {
 	display: inline-block;
 	padding: 10px 0 10px 0;
 	width: 100%;
 	text-align: left;
-	font-size: 20px;
-	color: rgb(92, 97, 136);
+	font-size: 16px;
+	color: rgb(27, 41, 77);
 	line-height: 30px;
 }
 
 #score {
 	display: inline-block;
-	margin: 0 170px 0 0;
 }
 
 #score p {
@@ -55,6 +59,7 @@ h1 {
 
 #question {
 	display: inline-block;
+	margin: 0 148px 0 0;
 }
 
 #question p {
@@ -64,14 +69,14 @@ h1 {
 .restart {
 	display: inline-block;
 	float: right;
-	margin: 0 94px 0 0;
+	margin: 0 24px 0 0;
 	width: 57px;
 	position: relative;
 	border-radius: 5px;
 	color: #444444;
 	background-color: rgba(175, 175, 175, 0.76);
 	padding: 0px 5px;
-	font-size: 17px;
+	font-size: 16px;
 	line-height: 29px;
 	cursor: pointer;
 	text-align: center;
@@ -79,10 +84,13 @@ h1 {
 
 }
 
+.restart:hover {
+	color: black;
+}
+
 h4 {
-	padding: 20px 0 13px 0;
-	font-size: 28px;
-	font-weight: 500;
+	padding: 12px 0 13px 0;
+	font-size: 21px;
 
 }
 
@@ -92,35 +100,36 @@ ul {
 
 ul li {
 	padding: 2px 0 10px;
-	font-size: 22px;
-	font-weight: 400;
+	font-size: 16px;
 }
 
 .option {
-	opacity: 0.7;
+	opacity: 0.4;
 	margin-right: 10px;
 	position: relative;
 	bottom: 2px;
+	cursor: pointer;
 }
 
 
 .outcome {
 	display: inline-block;
-	padding: 25px 0 10px 0px;
+	padding: 15px 0 10px 0px;
 	width: 100%;
 	text-align: left;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 30px;
 }
 
 #correct {
 	display: inline-block;
-	color: rgb(94, 136, 92)
+	color: rgb(28, 77, 27);
+	font-size: 16px;
 }
 
 #incorrect {
 	display: inline-block;
-	color: rgb(136, 92, 92);
+	color: rgb(77, 27, 27);
 }
 
 #correct-answer {
@@ -131,17 +140,21 @@ ul li {
 #next {
 	display: inline-block;
 	float: right;
-	margin: 0 95px 0 0;
+	margin: 0 24px 0 0;
 	width: 57px;
 	position: relative;
 	border-radius: 5px;
 	color: #444444;
 	background-color: rgba(175, 175, 175, 0.76);
 	padding: 0px 5px;
-	font-size: 17px;
+	font-size: 16px;
 	line-height: 29px;
 	cursor: pointer;
 	text-align: center;
+}
+
+#next:hover {
+	color: black;
 }
 
 .correct-answer {
@@ -157,59 +170,9 @@ ul li {
 	float: left;
 }
 
-/* Media Queries */
-@media (max-width: 800px) {
- 	.container {
- 		width: 90%;
- 		padding: 110px 100px 10px 20px;
- }
-
-
-}
-
-@media (max-width: 655px) {
-
-	 	.container {
-	 		padding: 5px 100px 10px 20px;
-	 	}
-
-	 	.container h1 {
-	 		font-size: 40px;
-	 		padding-bottom: 5px;
-	 	}
-
-	 	.status {
-			font-size: 14px;
-	 	}
-
-	 	h4 {
-	 		font-size: 20px;
-	 		padding: 3px 0 3px 0;
-	 	}
-
-	 	ul li {
-	 		font-size: 16px;
-	 	}
-
-	 	#score {
- 		margin: 0 40px 0 0;
- 	}
- 	.restart {
- 		margin: auto;
- 	}
-
- 	.outcome {
- 		font-size: 14px;
- 		padding: 3px 0 10px 0px;
- 		line-height: 18px;
- 	}
-
- 	#next {
- 		margin: auto;
-
- 	}
-.quiz-end {
-	margin: 10px 0 0 0;
-	float: left;
-}
+/* Firefox specific styles for heading */
+@-moz-document url-prefix() { 
+	h1 {
+	font-size: 44px;
+	}
 }
