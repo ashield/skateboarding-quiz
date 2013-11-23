@@ -1,6 +1,7 @@
 body {
     color: rgb(49, 49, 49);
     font-family: 'Montserrat', sans-serif;
+    background-color: rgb(49, 49, 49);
 }
 
 
@@ -172,6 +173,12 @@ ul li {
 
 /* Firefox specific styles for heading */
 @-moz-document url-prefix() { 
+	h1 {
+	font-size: 44px;
+	}
+}
+
+@-ms-document url-prefix() { 
 	h1 {
 	font-size: 44px;
 	}
